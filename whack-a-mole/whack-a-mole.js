@@ -13,6 +13,7 @@ var randomIndex = Math.floor(Math.random() * cells.length);
 
 var randomCell = cells[randomIndex]
 
+
 var mole = document.createElement('img');
 mole.src = './mole.png';
 mole.id = "mole"
@@ -26,4 +27,6 @@ function whackDaMole(){
   randomCell = cells[randomIndex]
   randomCell.appendChild(mole);
 
+  var audio = new Audio('./whack-audio.wav');
+  audio.play();
 }

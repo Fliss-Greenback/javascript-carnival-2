@@ -15,15 +15,15 @@ var randomCell = cells[randomIndex]
 
 var mole = document.createElement('img');
 mole.src = './mole.png';
-mole.id = 'mole'
+mole.id = "mole"
 
 randomCell.appendChild(mole);
 
-mole onclick =  whackDaMole;
+mole.onclick= whackDaMole
 
-function whackDaMole {
-  console.log("Whack da Mole")
+function whackDaMole(){
+  randomIndex = Math.floor(Math.random() * cells.length);
+  randomCell = cells[randomIndex]
+  randomCell.appendChild(mole);
+
 }
-
-
-console.log(randomCell)

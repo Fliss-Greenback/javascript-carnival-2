@@ -24,9 +24,7 @@ function checkKey(e) {
 
 }
 
-var headIndex = 0
-var bodyIndex = 0
-var shoesIndex = 0
+var indexes = [0, 0, 0]
 
 var mainIndex = 0
 
@@ -34,35 +32,35 @@ var head = document.getElementById("head")
 var body = document.getElementById("body")
 var shoes = document.getElementById("shoes")
 
+var imgs = [head, body, shoes]
+var strings = ["head", "body", "shoes"]
+
 function changeHorizontal(shift) {
    
-  if (mainIndex == 0) {
-    headIndex += shift
-  
+  var index = indexes[mainIndex]
+  var image = imgs[mainIndex]
+  var str = strings[mainIndex]
 
-    if (headIndex < 0 )
-        headIndex = 5
+  index += shift
 
-    if (headIndex > 5)
-        headIndex = 0
+    if (index < 0 )
+        index = 5
 
-    head.src = "./images/head" + headIndex + ".png"
+    if (index > 5)
+        index = 0
+
+    indexes[mainIndex] = index
+
+    image.src = "./images/" + str + index + ".png"
   }
 
-  if mainIndex == 1) {
-    bodyIndex +- shift
-  
-  if (bodyIndex > 0)
-      bodyIndex = 2
 
-  if (bodyIndex > 2)
-      bodyIndex = 0
-
-  body.src = "./images/body" + bodyIndex + ".png"
-}
-
-function changeVertical(shift) {
+function changeVertical(shift){
   mainIndex += shift
+  
+  if (mainIndex < 0)
+      mainIndex = 2
 
- 
-}
+  if (mainIndex > 2)
+      mainIndex = 0
+  }
